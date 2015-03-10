@@ -1,27 +1,24 @@
 package com.madcowscientist.tilerace;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
 
-public class TitleActivity extends ActionBarActivity {
+public class GameActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_title_screen);
+        setContentView(R.layout.activity_game);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_title_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_game, menu);
         return true;
     }
 
@@ -39,14 +36,4 @@ public class TitleActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    /* Start the game (new activity) on a button press */
-    public void startGame(View view) {
-        Intent myIntent = new Intent(this, GameActivity.class);
-        EditText tempText = (EditText) findViewById(R.id.tv_playerName);
-        String playerName = tempText.getText().toString();
-        myIntent.putExtra("player", playerName); //Optional parameters
-        startActivity(myIntent);
-    }
-
 }
